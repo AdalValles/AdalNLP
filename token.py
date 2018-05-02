@@ -1,5 +1,6 @@
 import string
-from sklearn.feature_extraction.text import CountVectorizer
+import logging
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 #stopwords array
 stopwords = ['la','de','el','podrias','por','favor']
 
