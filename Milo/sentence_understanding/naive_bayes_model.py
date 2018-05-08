@@ -3,6 +3,8 @@
 
 from sklearn.naive_bayes import GaussianNB
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
 from sklearn import metrics
 
 from text_preprocessing.text_preprocessor import TextPreprocessor
@@ -17,7 +19,7 @@ WEEKDAY = 6  # day of week allow to auto training    5: saturday 6: sunday
 MINPROB = 0.001  # min of probability for include a class i n options
 
 
-def train_model():
+def train_model(num):
     """
     This function train a naive bayes model
     :return: trained model
@@ -27,15 +29,27 @@ def train_model():
     training_data, training_targets, testing_data, test_targets = load_training_data()
 
     # Define Bag of Words
+    print("CountVectorizer")
     count_vectorizer = CountVectorizer(max_features=5000, strip_accents='ascii', lowercase=True)
     count_vectorizer.fit(training_data)
-
+    
     training_feature_vector = count_vectorizer.transform(training_data)
     test_feature_vector = count_vectorizer.transform(testing_data)
 
     # model declaration and training
-    naive_bayes_model = GaussianNB()
-    naive_bayes_model.fit(training_feature_vector.toarray(), training_targets)
+
+    if num == 1:
+        naive_bayes_model = GaussianNB()
+        naive_bayes_model.fit(training_feature_vector.toarray(), training_targets)
+    if num == 2:
+        print("RandomForestClassifier")
+        naive_bayes_model = RandomForestClassifier(criterion='entropy', max_depth=10)
+        naive_bayes_model.fit(training_feature_vector.toarray(), training_targets)
+    if num == 3:
+        print("MLPClassifier")
+        naive_bayes_model = MLPClassifier()
+        naive_bayes_model.fit(training_feature_vector.toarray(), training_targets)
+
 
     # model measure
     test_data_predicted = naive_bayes_model.predict(test_feature_vector.toarray())
@@ -100,7 +114,7 @@ def load_model():
     trained_model = False
 
     if not trained_model:
-        model, count_vectorizer = train_model()
+        model, count_vectorizer = train_model(3)
 
     return [model, count_vectorizer]
 
