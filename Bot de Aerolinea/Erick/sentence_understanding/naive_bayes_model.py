@@ -152,6 +152,22 @@ def load_training_data():
         "cancion":{
             'intents':['Puedes poner la cancion'],
             'examples': ['Puedes poner la cancion']
+        },
+        "reserva":{
+            'intents':['busco un vuelo', 'quiero reservar un vuelo', 'quiero reservar', 'quiero volar'],
+            'examples': ['busco un vuelo', 'quiero reservar un vuelo', 'quiero reservar', 'quiero volar']
+        },
+        "destinoFecha":{
+            'intents':['quiero ir a ', 'a ', 'a la ciudad de '],
+            'examples': ['quiero ir a ', 'a ', 'a la ciudad de ']
+        },
+        "fechaNombre":{
+            'intents':['el ', 'la fecha de ', 'en '],
+            'examples': ['el ', 'la fecha de ', 'en ']
+        },
+        "nombreFinal":{
+            'intents':['a ', 'a nombre de ', 'al nombre de '],
+            'examples': ['a ', 'a nombre de ', 'al nombre de ']
         }
     }
 

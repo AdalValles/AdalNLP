@@ -44,6 +44,7 @@ def get_response_from_message(skill_label, message):
     :param skill_label: skill used for the response
     :return: String with the info required
     """
+    conver = False
 
     logger.debug("SKILL LABEL: %s", skill_label)
 
@@ -65,6 +66,17 @@ def get_response_from_message(skill_label, message):
 
         # Preparing responses
         response = skill_module.get_response(message)
+
+        #nos dira el programa si se esta realizando una conversacion
+        if skill_actual[17:] == "reserva" or skill_actual[17:] == "destinoFecha" or skill_actual[17:] == "fechaNombre":
+            conver = True
+        if skill_actual[17:] == "nombreFinal":
+            print()
+            print("Conversation ends")
+            conver = False
+        print()
+        print("Conversation: "+str(conver))
+        print()
 
     except ImportError:
         logger.warning("IMPOSSIBLE TO IMPORT MODULE DEFAULT BEHAVIOR USED")
