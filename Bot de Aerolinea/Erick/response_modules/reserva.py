@@ -6,5 +6,4 @@ def get_response(l):
     will return a definition as an answer
     :return: String with the answer
     """
-    c = True
     return "Muy bien. Cual seria tu destino?"

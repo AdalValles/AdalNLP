@@ -6,7 +6,7 @@ def get_response(l):
     will return a definition as an answer
     :return: String with the answer
     """
-    stopwords = ['Puedes', 'poner', 'la', 'cancion']
+    stopwords = ['a', 'nombre', 'de', 'al', 'A', 'Nombre', 'De', 'Al']
 
     sentence= l
     tokens = sentence.split(' ')
@@ -16,7 +16,7 @@ def get_response(l):
     		continue
     	if token.isdigit():
     		continue
-    	token= token.lower()
+    	#token= token.lower()
     	token = token.strip()
     	if token in stopwords:
     		continue
@@ -24,6 +24,9 @@ def get_response(l):
 
     temp = []
     temp.append(' '.join(clean_token))
-    token = clean_token[0]
+    token1 = ""
 
-    return "Reservacion lista. Gracias."
+    for t in clean_token:
+    	token1 =token1 + str(t) + " "
+
+    return "Reservacion a nombre de "+token1+"lista. Gracias."

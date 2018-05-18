@@ -6,7 +6,7 @@ def get_response(l):
     will return a definition as an answer
     :return: String with the answer
     """
-    stopwords = ['Puedes', 'poner', 'la', 'cancion']
+    stopwords = ['el', 'la', 'fecha', 'de', 'en', 'dia', 'El', 'La', 'Fecha', 'De', 'En', 'Dia']
 
     sentence= l
     tokens = sentence.split(' ')
@@ -14,8 +14,7 @@ def get_response(l):
     for token in tokens:
     	if all(char in set(string.punctuation) for char in token):
     		continue
-    	if token.isdigit():
-    		continue
+    	
     	token= token.lower()
     	token = token.strip()
     	if token in stopwords:
@@ -24,6 +23,6 @@ def get_response(l):
 
     temp = []
     temp.append(' '.join(clean_token))
-    token = clean_token[0]
+    token1 = str(clean_token[0])+" de "+str(clean_token[1])
 
-    return "A que nombre desea la reservacion?"
+    return "Se asigno la fecha "+ token1 +". A que nombre desea la reservacion?"

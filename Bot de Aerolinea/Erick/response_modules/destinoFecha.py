@@ -6,7 +6,7 @@ def get_response(l):
     will return a definition as an answer
     :return: String with the answer
     """
-    stopwords = ['quiero', 'ir', 'a', 'la', 'ciudad', 'de']
+    stopwords = ['quiero', 'ir', 'a', 'la', 'ciudad', 'de', 'Quiero', 'Ir', 'A', 'La', 'Ciudad', 'De']
 
     sentence= l
     tokens = sentence.split(' ')

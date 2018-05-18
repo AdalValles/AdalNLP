@@ -162,8 +162,8 @@ def load_training_data():
             'examples': ['quiero ir a ', 'a ', 'a la ciudad de ']
         },
         "fechaNombre":{
-            'intents':['el ', 'la fecha de ', 'en '],
-            'examples': ['el ', 'la fecha de ', 'en ']
+            'intents':['el ', 'la fecha de ', 'en', 'el dia'],
+            'examples': ['el ', 'la fecha de ', 'en', 'el dia']
         },
         "nombreFinal":{
             'intents':['a ', 'a nombre de ', 'al nombre de '],
